@@ -25,6 +25,6 @@ services:
     networks:
       - magelo
 networks:
-  allaclone:
+  magelo:
     name: magelo
     driver: bridge
