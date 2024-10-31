@@ -1,0 +1,30 @@
+services:
+  db:
+    build: ./db
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_USER=eqemu
+      - MARIADB_PASSWORD=eqemu
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=eqemu
+    networks:
+      - magelo
+  api:
+    build: ./api
+    ports:
+      - 8080:8080
+    environment:
+      - DB_CONNECTION=jdbc:mariadb://db:3306/eqemu
+    networks:
+      - magelo
+  ui:
+    build: ./ui
+    ports:
+      - 80:80
+    networks:
+      - magelo
+networks:
+  allaclone:
+    name: magelo
+    driver: bridge
