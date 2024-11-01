@@ -1,1 +1,16 @@
 spring.application.name: charviewer
+
+db:
+  connection: jdbc:mariadb://localhost:3306/eqemu
+  username: eqemu
+  password: eqemu
+spring:
+  datasource:
+    url: ${db.connection}
+    username: ${db.username}
+    password: ${db.password}
+logging:
+  level:
+    root: info
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
