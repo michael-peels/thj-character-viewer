@@ -26,6 +26,10 @@
       min-width: 250px;
       padding: 6px;
       margin-right: 1rem;
+
+      &:focus-visible {
+        outline: #504a3a auto 1px;
+      }
     }
 
     button {
