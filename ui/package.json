@@ -14,7 +14,10 @@
   "dependencies": {
     "openapi-typescript-codegen": "^0.29.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0",
+    "sass": "^1.80.5",
+    "typescript-plugin-css-modules": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
