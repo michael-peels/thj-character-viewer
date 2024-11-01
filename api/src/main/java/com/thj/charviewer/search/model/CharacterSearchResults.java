@@ -1,4 +1,4 @@
-package com.thj.charviewer.character.model;
+package com.thj.charviewer.search.model;
 
 import java.util.List;
 

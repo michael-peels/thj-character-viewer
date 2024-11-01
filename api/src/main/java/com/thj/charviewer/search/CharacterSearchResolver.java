@@ -1,4 +1,4 @@
-package com.thj.charviewer.character;
+package com.thj.charviewer.search;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,34 +12,12 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 
-import com.thj.charviewer.character.model.CharacterSearchResults;
-import com.thj.charviewer.character.model.CharacterSearchResults.CharacterSummary;
 import com.thj.charviewer.classes.ClassResolver;
+import com.thj.charviewer.search.model.CharacterSearchResults;
+import com.thj.charviewer.search.model.CharacterSearchResults.CharacterSummary;
 
 @Component
 public class CharacterSearchResolver {
-  private static final String QUERY = """
-      SELECT
-        name,
-        level,
-        class
-      FROM
-        character_data
-      WHERE
-        name like :searchString
-      ORDER BY
-        name ASC
-      OFFSET :offset ROWS FETCH FIRST :pageSize ROWS ONLY
-            """;
-  private static final String COUNT_QUERY = """
-      SELECT
-        count(*)
-      FROM
-        character_data
-      WHERE
-        name like :searchString
-        """;
-
   private final NamedParameterJdbcTemplate template;
   private final RowMapper<CharacterSummary> mapper = new RowMapper<CharacterSummary>() {
 
@@ -56,6 +34,29 @@ public class CharacterSearchResolver {
   public CharacterSearchResolver(final NamedParameterJdbcTemplate template) {
     this.template = template;
   }
+
+  private static final String QUERY = """
+      SELECT
+        name,
+        level,
+        class
+      FROM
+        character_data
+      WHERE
+        name like :searchString
+      ORDER BY
+        name ASC
+      OFFSET :offset ROWS FETCH FIRST :pageSize ROWS ONLY
+            """;
+
+  private static final String COUNT_QUERY = """
+      SELECT
+        count(*)
+      FROM
+        character_data
+      WHERE
+        name like :searchString
+        """;
 
   public CharacterSearchResults resolve(final String searchString, final Pageable pageable) {
     SqlParameterSource namedParameters = new MapSqlParameterSource(

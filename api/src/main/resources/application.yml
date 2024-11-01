@@ -4,11 +4,16 @@ db:
   connection: jdbc:mariadb://localhost:3306/eqemu
   username: eqemu
   password: eqemu
+
 spring:
   datasource:
     url: ${db.connection}
     username: ${db.username}
     password: ${db.password}
+  cache:
+    type: caffeine
+    caffeine.spec: maximumSize=100,expireAfterAccess=10m,expireAfterWrite=10m
+
 logging:
   level:
     root: info
