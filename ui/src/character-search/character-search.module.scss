@@ -1,49 +1,33 @@
-.home {
-    height: 100vh;
-    background-color: rgba(210, 180, 140, 0.8);
+.search {
     display: flex;
-    flex-direction: column;
-    padding-top: 2rem;
-    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
 
-    .logo {
-        background-image: url(thjlogo.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 30%;
+    input {
+        border-radius: 0.5rem;
+        border: solid 1px lightgray;
+        width: 20%;
+        min-width: 250px;
+        padding: 6px;
+        margin-right: 0.5rem;
+
+        &:focus-visible {
+            outline: #504a3a auto 1px;
+        }
     }
 
-    .search {
-        display: flex;
-        justify-content: center;
-        padding: 1rem;
-        width: 100%;
+    button {
+        border-radius: 0.5rem;
+        border: none;
+        background-color: #504a3a;
+        color: #e9e3d7;
+        font-weight: bold;
+        padding: 0.75rem;
+        cursor: pointer;
 
-        input {
-            border-radius: 0.5rem;
-            border: solid 1px lightgray;
-            width: 20%;
-            min-width: 250px;
-            padding: 6px;
-            margin-right: 0.5rem;
-
-            &:focus-visible {
-                outline: #504a3a auto 1px;
-            }
-        }
-
-        button {
-            border-radius: 0.5rem;
-            border: none;
-            background-color: #504a3a;
-            color: #ddd0b0;
-            font-weight: bold;
-            padding: 0.75rem;
-            cursor: pointer;
-
-            &:hover {
-                outline: solid 1px rgb(220, 211, 211);
-            }
+        &:hover {
+            outline: solid 1px rgb(220, 211, 211);
         }
     }
 }

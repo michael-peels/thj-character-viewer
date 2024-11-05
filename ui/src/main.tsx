@@ -1,13 +1,28 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Home } from './character-search/CharacterSearch';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { BazaarSearch } from './bazaar-search/BazaarSearch';
+import { CharacterSearch } from './character-search/CharacterSearch';
+import { Home } from './home/Home';
+import { Layout } from './layout/Layout';
 import './main.scss';
+
+const routing = [
+    {
+        path: '/',
+        element: <Layout />,
+        children: [
+            { path: '', element: <Home /> },
+            { path: '/characters', element: <CharacterSearch /> },
+            { path: '/bazaar', element: <BazaarSearch /> },
+            { path: '*', element: <Navigate to={'/'} /> }
+        ]
+    }
+];
+const router = createBrowserRouter(routing);
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <BrowserRouter>
-            <Home />
-        </BrowserRouter>
+        <RouterProvider router={router} />
     </StrictMode>
 );
