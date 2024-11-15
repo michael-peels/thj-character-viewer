@@ -6,6 +6,7 @@ import { CharacterSearch } from './character-search/CharacterSearch';
 import { Home } from './home/Home';
 import { Layout } from './layout/Layout';
 import './main.scss';
+import { CharacterDetails } from './character-details/CharacterDetails';
 
 const routing = [
     {
@@ -14,6 +15,7 @@ const routing = [
         children: [
             { path: '', element: <Home /> },
             { path: '/characters', element: <CharacterSearch /> },
+            { path: '/characters/:id', element: <CharacterDetails /> },
             { path: '/bazaar', element: <BazaarSearch /> },
             { path: '*', element: <Navigate to={'/'} /> }
         ]

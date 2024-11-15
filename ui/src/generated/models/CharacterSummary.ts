@@ -3,6 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export type CharacterSummary = {
+    id: number;
     name?: string;
     level?: number;
     playerClass?: string;

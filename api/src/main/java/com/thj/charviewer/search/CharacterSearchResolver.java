@@ -24,9 +24,10 @@ public class CharacterSearchResolver {
     @Override
     public CharacterSummary mapRow(ResultSet rs, int rowNum) throws SQLException {
       return new CharacterSummary(
-          rs.getString(1),
-          rs.getInt(2),
-          ClassResolver.resolve(rs.getInt(3)));
+          rs.getInt(1),
+          rs.getString(2),
+          rs.getInt(3),
+          ClassResolver.resolve(rs.getInt(4)));
     }
 
   };
@@ -37,6 +38,7 @@ public class CharacterSearchResolver {
 
   private static final String QUERY = """
       SELECT
+        id,
         name,
         level,
         class
