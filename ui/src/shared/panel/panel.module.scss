@@ -1,0 +1,43 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-image: url('/panelBackground.gif');
+    border: 2px #7b714a solid;
+    border-radius: 4px;
+    color: white;
+
+    .tableHeader {
+        display: flex;
+        justify-content: center;
+        margin-top: -10px;
+
+        .tableHeaderLeft {
+            background-image: url('/panelHeaderLeft.gif');
+            width: 14px;
+            height: 21px;
+        }
+        .tableHeaderMiddle {
+            background-image: url('/panelHeaderMiddle.gif');
+            color: white;
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+        }
+        .tableHeaderRight {
+            background-image: url('/panelHeaderRight.gif');
+            width: 14px;
+            height: 21px;
+        }
+    }
+
+    .innerBorder {
+        padding: 2px 6px;
+
+        .contentWrapper {
+            border: 1px #40434e solid;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

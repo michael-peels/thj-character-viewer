@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react';
 import { CharacterSearchResults, SearchControllerService } from '../../generated';
 import { useSearchParams } from 'react-router-dom';
 
-const PAGE_SIZE = 25;
+export const PAGE_SIZE = 25;
 export const useCharacterSearch = () => {
     const [results, setResults] = useState<CharacterSearchResults | undefined>();
     const [searchParams, setSearchParams] = useSearchParams();
+    const [currentPage, setCurrentPage] = useState<number | undefined>();
 
     useEffect(() => {
         const name = searchParams.get('name');
         const page = Number(searchParams.get('page'));
+        setCurrentPage(page);
         if (name && name.trim() !== '') {
             performSearch(name, page);
         }
@@ -27,5 +29,5 @@ export const useCharacterSearch = () => {
         search(searchParams.get('name') ?? '', page);
     };
 
-    return { search, page, results, name: searchParams.get('name') ?? '' };
+    return { search, page, results, name: searchParams.get('name') ?? '', currentPage };
 };

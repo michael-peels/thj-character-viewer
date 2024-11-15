@@ -1,0 +1,21 @@
+.pagination {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    button {
+        color: rgba(210, 180, 140, 0.8);
+        background-color: unset;
+        border: none;
+        font-size: 1rem;
+        line-height: 1rem;
+        cursor: pointer;
+        padding: 0;
+
+        &:disabled {
+            color: white;
+        }
+    }
+}

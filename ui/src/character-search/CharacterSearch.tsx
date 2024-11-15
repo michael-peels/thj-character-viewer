@@ -1,10 +1,10 @@
 import { FormEvent, useState } from 'react';
 import { useCharacterSearch } from '../hooks/api/useCharacterSearch';
-import { CharacterResultList } from './CharacterResultList';
+import { CharacterResultList } from './list/CharacterResultList';
 import styles from './character-search.module.scss';
 
 export const CharacterSearch = () => {
-    const { search, page, results, name } = useCharacterSearch();
+    const { search, page, results, name, currentPage } = useCharacterSearch();
     const [searchText, setSearchText] = useState('');
 
     const handleSearch = async (event: FormEvent) => {
@@ -20,7 +20,9 @@ export const CharacterSearch = () => {
                 <input onChange={(event) => setSearchText(event.target.value)} defaultValue={name} />
                 <button>Search</button>
             </form>
-            {results && <CharacterResultList results={results} onChangePage={page} />}
+            <div className={styles.searchResults}>
+                {results && <CharacterResultList results={results} onChangePage={page} currentPage={currentPage} />}
+            </div>
         </>
     );
 };

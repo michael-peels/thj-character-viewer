@@ -1,7 +1,7 @@
 .search {
     display: flex;
     justify-content: center;
-    padding: 1rem;
+    padding: 1rem 0;
     width: 100%;
 
     input {
@@ -28,6 +28,30 @@
 
         &:hover {
             outline: solid 1px rgb(220, 211, 211);
+        }
+    }
+}
+
+.searchResults {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+}
+
+@media screen and (max-width: 600px) {
+    .search {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 90%;
+
+        input {
+            width: 100%;
+        }
+
+        button {
+            width: 50%;
         }
     }
 }
